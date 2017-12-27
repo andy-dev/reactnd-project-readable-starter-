@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
-import Landing from './landing';
-import Category from './category';
-import Detail from './detail';
-import EditPost from './editPost';
+import Landing from './components/landing';
+import Category from './components/category';
+import Detail from './components/detail';
+import EditPost from './components/editPost';
+import * as API from './API';
 
 class App extends Component {
+
+
   render() {
     return (
       <div className="App">
@@ -15,7 +18,7 @@ class App extends Component {
           path="/"
           render={() =>
             <div>
-              <Landing />
+              <Landing/>
             </div>}
         />
         <Route path="/category" render={({ history }) => <Category />} />

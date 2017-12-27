@@ -3,3 +3,24 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+
+.categories {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  margin-left: 152px;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.subheader {
+  font-size: 30px;
+  font-weight: 300;
+}
