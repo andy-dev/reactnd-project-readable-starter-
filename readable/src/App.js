@@ -5,12 +5,12 @@ import Landing from './components/landing';
 import Category from './components/category';
 import Detail from './components/detail';
 import EditPost from './components/editPost';
-import * as API from './API';
+import { connect } from 'react-redux';
 
 class App extends Component {
-
-
   render() {
+    console.log(this.props);
+
     return (
       <div className="App">
         <Route
@@ -18,7 +18,7 @@ class App extends Component {
           path="/"
           render={() =>
             <div>
-              <Landing/>
+              <Landing />
             </div>}
         />
         <Route path="/category" render={({ history }) => <Category />} />
@@ -29,4 +29,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);

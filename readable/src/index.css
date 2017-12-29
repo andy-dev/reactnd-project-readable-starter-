@@ -4,6 +4,15 @@ body {
   font-family: sans-serif;
 }
 
+.debug{
+  outline: 1px solid red;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+}
+
 
 .categories {
   display: flex;

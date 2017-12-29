@@ -10,4 +10,11 @@ const headers = {
 };
 
 export const getAllCategories = () =>
-  fetch(`${api}/categories`, { headers }).then(res => res.json()).then(data => data);
+  fetch(`${api}/categories`, { headers })
+      .then(res => res.json())
+      .then(data => data);
+
+export const getAllPosts = () =>
+    fetch(`${api}/posts`, { headers })
+        .then(res => res.json())
+        .then(data => data);

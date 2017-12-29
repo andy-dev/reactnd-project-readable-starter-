@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import * as API from '../API';
 
+import { Container, Row, Col } from 'reactstrap';
+import { MdAdd } from 'react-icons/lib/md';
+import 'bootstrap/dist/css/bootstrap.css';
+
 class Landing extends Component {
   state = {
     categories: []
@@ -11,28 +15,31 @@ class Landing extends Component {
       console.log(categories);
       this.setState({ categories });
     });
+
+    API.getAllPosts().then(categories => {});
   }
 
   render() {
     const { categories } = this.state;
     return (
-      <div>
-        <ul>
-          <li>
-            {categories.length !== 0
-              ? <ul className="categories">
-                  {categories['categories'].map(category =>
-                    <li key={category} className="subheader">
+      <Container>
+        {categories.length !== 0
+          ? <Row>
+              {categories['categories'].map(category =>
+                <Col key={category.name} md="3">
+                  <div>
+                    <p>
                       {category.name}
-                    </li>
-                  )}
-                </ul>
-              : <div>
-                  <p>waiting for data</p>
-                </div>}
-          </li>
-        </ul>
-      </div>
+                    </p>
+                    <button className="icon-btn">
+                      <MdAdd size={30} />
+                    </button>
+                  </div>
+                </Col>
+              )}
+            </Row>
+          : <div>loading component</div>}
+      </Container>
     );
   }
 }
