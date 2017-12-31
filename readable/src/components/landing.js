@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import * as API from '../util/API';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
-import { Container, Row, Col } from 'reactstrap';
 import { MdAdd } from 'react-icons/lib/md';
 import 'bootstrap/dist/css/bootstrap.css';
 import ReactPostsContainer from '../containers/ReactPostsContainer';
@@ -24,37 +23,35 @@ class Landing extends Component {
     const { categories } = this.state;
 
     return (
-      <Container>
+      <div>
         {categories.length !== 0
-          ? <div>
-              <Row>
-                {categories['categories'].map(category =>
-                  <Col key={category.name} md="4">
-                    <div>
-                      <Link to={`/category/${category.name}`}>
-                        {category.name}
-                      </Link>
-                      <button className="icon-btn">
-                        <MdAdd size={30} />
-                      </button>
-                    </div>
-                  </Col>
-                )}
-              </Row>
-              <Row>
-                <Col md="4">
+          ? <div className="row">
+              {categories['categories'].map(category =>
+                <div className="col-md-4 debug" key={category.name}>
+                  <div>
+                    <Link to={`/category/${category.name}`}>
+                      {category.name}
+                    </Link>
+                    <button className="icon-btn">
+                      <MdAdd size={30} />
+                    </button>
+                  </div>
+                </div>
+              )}
+              <div className="row">
+                <div className="col-md-4">
                   <ReactPostsContainer />
-                </Col>
-                <Col md="4">
+                </div>
+                <div className="col-md-4">
                   <ReduxPostsContainer />
-                </Col>
-                <Col md="4">
+                </div>
+                <div className="col-md-4">
                   <UdacityPostsContainer />
-                </Col>
-              </Row>
+                </div>
+              </div>
             </div>
           : <div>loading component</div>}
-      </Container>
+      </div>
     );
   }
 }

@@ -4,11 +4,12 @@ import Landing from './components/landing';
 import Category from './components/category';
 import Detail from './components/detail';
 import EditPost from './components/editPost';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         <Route
           exact
           path="/"
