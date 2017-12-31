@@ -1,30 +1,26 @@
-import * as API from '../API';
-export const ADD_POST = 'ADD_POST';
-export const REMOVE_POST = 'REMOVE_POST';
-export const FETCH_POSTS = 'FETCH_POSTS';
+import * as API from '../util/API';
 
-export function addPost({ category, post }) {
-  return {
-    type: ADD_POST,
-    category,
-    post
+import { GET_ALL_POSTS } from '../constants';
+
+export const getAllPosts = () => {
+  return dispatch => {
+    API.getAllPosts().then(posts => {
+      dispatch({
+        type: GET_ALL_POSTS,
+        posts
+      });
+    });
   };
-}
+};
 
-export function removePost({ category, post }) {
-  return {
-    type: REMOVE_POST,
-    category,
-    post
-  };
-}
-
-export const receivePosts = posts => ({
-  type: FETCH_POSTS,
-  posts
-});
-
-export const fetchPosts = () => dispatch =>
-  API
-    .getAllPosts()
-    .then(posts => dispatch(receivePosts(posts)));
+// todo see if this is a better way to express
+// export const receivePosts = posts => ({
+//     type: FETCH_POSTS,
+//     posts
+// });
+//
+// export const fetchPosts = () => dispatch => {
+//     API.getAllPosts().then(posts => {
+//         dispatch(receivePosts(posts));
+//     });
+// };
