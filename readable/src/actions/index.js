@@ -1,6 +1,6 @@
 import * as API from '../util/API';
 
-import { GET_ALL_POSTS } from '../constants';
+import { GET_ALL_POSTS, ADD_NEW_POST } from '../constants';
 
 export const getAllPosts = () => {
   return dispatch => {
@@ -13,14 +13,20 @@ export const getAllPosts = () => {
   };
 };
 
-// todo see if this is a better way to express
-// export const receivePosts = posts => ({
-//     type: FETCH_POSTS,
-//     posts
-// });
-//
-// export const fetchPosts = () => dispatch => {
-//     API.getAllPosts().then(posts => {
-//         dispatch(receivePosts(posts));
-//     });
-// };
+export const addPost = post => {
+    // const item = {
+    //     packed: false,
+    //     post,
+    // };
+
+    return dispatch => {
+        API.addPost(post).then(post => {
+            dispatch({
+                type: ADD_NEW_POST,
+                post
+            });
+        });
+    };
+};
+
+

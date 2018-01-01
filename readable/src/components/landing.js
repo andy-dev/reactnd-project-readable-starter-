@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import * as API from '../util/API';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
-import { MdAdd } from 'react-icons/lib/md';
-// import 'bootstrap/dist/css/bootstrap.css';
 import AllPostsContainer from '../containers/AllPostsContainer';
 import FaPlus from 'react-icons/lib/fa/plus';
 

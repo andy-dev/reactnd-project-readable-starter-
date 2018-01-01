@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 
 import FaAngleDown from 'react-icons/lib/fa/angle-down';
