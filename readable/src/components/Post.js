@@ -6,22 +6,23 @@ import FaAngleUp from 'react-icons/lib/fa/angle-up';
 
 class Post extends Component {
   render() {
-    console.log(this.props);
-    const { body, title, author, id, onRemove } = this.props;
+    const { body, title, author, id, onRemove, voteScore } = this.props;
     return (
       <div className="row p-2 align-items-center">
         <div className="col-md-2 ta-c">
           <div className="row">
-            <div className="col">
-              <FaAngleUp size="30" />
+            <div className="col cp">
+              <FaAngleUp size="50" />
             </div>
           </div>
           <div className="row">
-            <div className="col">Vote Count:</div>
+            <div className="col">
+              {voteScore}
+            </div>
           </div>
           <div className="row">
-            <div className="col">
-              <FaAngleDown size="30" />
+            <div className="col cp">
+              <FaAngleDown size="50" />
             </div>
           </div>
         </div>
@@ -37,14 +38,10 @@ class Post extends Component {
               <p className="card-text">
                 {body}
               </p>
-              <a href="#" className="card-link">
-                Edit
-              </a>
-              <a href="#" className="card-link">
-                View Detail
-              </a>
-              <button onClick={() => onRemove(id)} className="card-link">
-                Delete {id}
+              <button className="btn btn-info m-1"> Edit</button>
+              <buton className="btn btn-success m-1">View</buton>
+              <button onClick={() => onRemove(id)} className="btn btn-danger m-1">
+                Delete
               </button>
             </div>
           </div>
