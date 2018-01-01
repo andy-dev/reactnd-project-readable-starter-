@@ -10,21 +10,19 @@ const headers = {
 };
 
 export const getAllCategories = () =>
-  fetch(`${api}/categories`, { headers })
-      .then(res => res.json())
-      .then(data => data);
+  fetch(`${api}/categories`, { headers }).then(res => res.json()).then(data => data);
 
-export const getAllPosts = () =>
-    fetch(`${api}/posts`, { headers })
-        .then(res => res.json())
-        .then(data => data);
+export const getAllPosts = () => fetch(`${api}/posts`, { headers }).then(res => res.json()).then(data => data);
 
-export const addPost = (body) =>
-    fetch(`${api}/posts`, {
-        method: 'POST',
-        headers: {
-            ...headers,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-    }).then(res => res.json())
+export const addPost = body =>
+  fetch(`${api}/posts`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  }).then(res => res.json());
+
+export const deletePost = id =>
+  fetch(`${api}/posts/${id}`, { method: 'DELETE', headers }).then(res => res.json()).then(data => data);

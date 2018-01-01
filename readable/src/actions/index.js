@@ -1,6 +1,6 @@
 import * as API from '../util/API';
 
-import { GET_ALL_POSTS, ADD_NEW_POST } from '../constants';
+import { GET_ALL_POSTS, ADD_NEW_POST, DELETE_POST } from '../constants';
 
 export const getAllPosts = () => {
   return dispatch => {
@@ -14,19 +14,23 @@ export const getAllPosts = () => {
 };
 
 export const addPost = post => {
-    // const item = {
-    //     packed: false,
-    //     post,
-    // };
-
-    return dispatch => {
-        API.addPost(post).then(post => {
-            dispatch({
-                type: ADD_NEW_POST,
-                post
-            });
-        });
-    };
+  return dispatch => {
+    API.addPost(post).then(post => {
+      dispatch({
+        type: ADD_NEW_POST,
+        post
+      });
+    });
+  };
 };
 
-
+export const deletePost = id => {
+  return dispatch => {
+    API.deletePost(id).then(() => {
+      dispatch({
+        type: DELETE_POST,
+        id: id
+      });
+    });
+  };
+};

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 
-
 import FaAngleDown from 'react-icons/lib/fa/angle-down';
 import FaAngleUp from 'react-icons/lib/fa/angle-up';
 
 class Post extends Component {
   render() {
-    const { body, title, author } = this.props;
+    console.log(this.props);
+    const { body, title, author, id, onRemove } = this.props;
     return (
       <div className="row p-2 align-items-center">
         <div className="col-md-2 ta-c">
@@ -43,6 +43,9 @@ class Post extends Component {
               <a href="#" className="card-link">
                 View Detail
               </a>
+              <button onClick={() => onRemove(id)} className="card-link">
+                Delete {id}
+              </button>
             </div>
           </div>
         </div>

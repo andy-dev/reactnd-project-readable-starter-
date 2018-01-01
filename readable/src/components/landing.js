@@ -25,7 +25,9 @@ class Landing extends Component {
 
         <div className="row ta-r">
           <div className="col cp">
-            Add Post <FaPlus />
+            <Link to={`/editPost/`}>
+              Add Post <FaPlus />
+            </Link>
           </div>
         </div>
 
