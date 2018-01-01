@@ -1,31 +1,48 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import './Item.css';
-import 'bootstrap/dist/css/bootstrap.css';
+
+
+import FaAngleDown from 'react-icons/lib/fa/angle-down';
+import FaAngleUp from 'react-icons/lib/fa/angle-up';
 
 class Post extends Component {
   render() {
-    const { body } = this.props;
+    const { body, title, author } = this.props;
     return (
-      <div>
-        <article className="Post">
-          <label>
-            <input type="checkbox" />
-            {body}
-          </label>
-        </article>
-
-        <div className="container">
+      <div className="row p-2 align-items-center">
+        <div className="col-md-2 ta-c">
           <div className="row">
-            <div className="col-md-2">
-              <div className="row align-items-center">
-                <div className="col-md-12">vote up and vote down</div>
-              </div>
+            <div className="col">
+              <FaAngleUp size="30" />
             </div>
-            <div className="col-md-8">
-              <p>blog content</p>
-              <p>blog content</p>
-              <p>blog content</p>
+          </div>
+          <div className="row">
+            <div className="col">Vote Count:</div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <FaAngleDown size="30" />
+            </div>
+          </div>
+        </div>
+        <div className="col-md-10 ">
+          <div className="card ">
+            <div className="card-body p-3">
+              <h5 className="card-title">
+                {title}
+              </h5>
+              <h6 className="card-subtitle mb-2 text-muted">
+                {author}
+              </h6>
+              <p className="card-text">
+                {body}
+              </p>
+              <a href="#" className="card-link">
+                Edit
+              </a>
+              <a href="#" className="card-link">
+                View Detail
+              </a>
             </div>
           </div>
         </div>

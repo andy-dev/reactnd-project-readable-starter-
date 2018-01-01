@@ -3,10 +3,9 @@ import * as API from '../util/API';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import { MdAdd } from 'react-icons/lib/md';
-import 'bootstrap/dist/css/bootstrap.css';
-import ReactPostsContainer from '../containers/ReactPostsContainer';
-import ReduxPostsContainer from '../containers/ReduxPostsContainer';
-import UdacityPostsContainer from '../containers/UdacityPostsContainer';
+// import 'bootstrap/dist/css/bootstrap.css';
+import AllPostsContainer from '../containers/AllPostsContainer';
+import FaPlus from 'react-icons/lib/fa/plus';
 
 class Landing extends Component {
   state = {
@@ -24,29 +23,30 @@ class Landing extends Component {
 
     return (
       <div>
+        <h1 className="ta-c">Posts</h1>
+
+        <div className="row ta-r">
+          <div className="col cp">
+            Add Post <FaPlus />
+          </div>
+        </div>
+
         {categories.length !== 0
-          ? <div className="row">
-              {categories['categories'].map(category =>
-                <div className="col-md-4 debug" key={category.name}>
-                  <div>
-                    <Link to={`/category/${category.name}`}>
-                      {category.name}
-                    </Link>
-                    <button className="icon-btn">
-                      <MdAdd size={30} />
-                    </button>
-                  </div>
-                </div>
-              )}
+          ? <div>
               <div className="row">
-                <div className="col-md-4">
-                  <ReactPostsContainer />
-                </div>
-                <div className="col-md-4">
-                  <ReduxPostsContainer />
-                </div>
-                <div className="col-md-4">
-                  <UdacityPostsContainer />
+                {categories['categories'].map(category =>
+                  <div className="col" key={category.name}>
+                    <div className="ta-c">
+                      <Link to={`/category/${category.name}`}>
+                        {category.name}
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className="row">
+                <div className="col">
+                  <AllPostsContainer />
                 </div>
               </div>
             </div>
@@ -57,3 +57,8 @@ class Landing extends Component {
 }
 
 export default withRouter(Landing);
+
+//
+// <button className="icon-btn">
+//   <MdAdd size={30} />
+// </button>

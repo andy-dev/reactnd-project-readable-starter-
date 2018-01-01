@@ -5,13 +5,11 @@ class Posts extends Component {
   render() {
     const { posts } = this.props;
     return (
-      <section>
+      <div className="">
         {posts.map(post => <Post key={post.id} {...post} />)}
-      </section>
+      </div>
     );
   }
 }
 
 export default Posts;
-
-
