@@ -1,4 +1,4 @@
-import { ADD_NEW_POST, DELETE_POST, GET_ALL_POSTS } from '../constants';
+import { ADD_NEW_POST, DELETE_POST, GET_ALL_POSTS, UPDATE_POST } from '../constants';
 
 export default function(state = {}, action) {
   const { posts, post, id } = action;
@@ -9,6 +9,13 @@ export default function(state = {}, action) {
 
     case GET_ALL_POSTS:
       return posts;
+
+    case UPDATE_POST:
+      debugger;
+      return {
+        ...state,
+        [id]: post
+      };
 
     case DELETE_POST:
       return state.filter(post => post.id !== id);

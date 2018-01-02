@@ -1,6 +1,6 @@
 import * as API from '../util/API';
 
-import { GET_ALL_POSTS, ADD_NEW_POST, DELETE_POST } from '../constants';
+import { GET_ALL_POSTS, ADD_NEW_POST, DELETE_POST, UPDATE_POST } from '../constants';
 
 export const getAllPosts = () => {
   return dispatch => {
@@ -24,6 +24,18 @@ export const addPost = post => {
   };
 };
 
+export const updatePost = (id, post) => {
+  return dispatch => {
+    API.updatePost(id, post).then(post => {
+      console.log(post);
+      dispatch({
+        type: UPDATE_POST,
+        id,
+        post
+      });
+    });
+  };
+};
 
 export const deletePost = id => {
   return dispatch => {

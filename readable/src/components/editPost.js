@@ -4,7 +4,7 @@ import TiHome from 'react-icons/lib/ti/home';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import serializeForm from 'form-serialize';
-import { addPost } from '../actions/index';
+import { updatePost } from '../actions/index';
 var cuid = require('cuid');
 
 class EditPost extends Component {
@@ -19,24 +19,19 @@ class EditPost extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { add } = this.props;
+    const { updatePost } = this.props;
+    const { post } = this.state;
     const values = serializeForm(event.target, { hash: true });
-    values.id = cuid();
-    values.timestamp = Date.now();
-    add(values);
+    updatePost(post[0].id, values);
   };
 
   render() {
     const { post } = this.state;
 
-    console.log(post);
-
     return (
       <div className="p-15">
         <h1 className="ta-c">Edit Post</h1>
-        <p>
-          {post[0].title}
-        </p>
+
         <div className="row mb-5">
           <div className="col cp">
             <Link to={`/`}>
@@ -77,8 +72,8 @@ class EditPost extends Component {
             <label htmlFor="body">Post</label>
             <textarea className="form-control" name="body" rows="10" defaultValue={post[0].body} />
           </div>
-          <button type="submit" className="btn btn-primary">
-            Add Post
+          <button type="submit" className="btn btn-success">
+            Edit
           </button>
         </form>
       </div>
@@ -90,10 +85,12 @@ const mapStateToProps = ({ posts }) => {
   return { posts: posts };
 };
 
-// function mapDispatchToProps(dispatch) {
-//   // return {
-//   //   update: data => dispatch(addPost(data))
-//   // };
-// }
+function mapDispatchToProps(dispatch) {
+  return {
+    updatePost: (id, data) => {
+      dispatch(updatePost(id, data));
+    }
+  };
+}
 
-export default withRouter(connect(mapStateToProps, null)(EditPost));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditPost));

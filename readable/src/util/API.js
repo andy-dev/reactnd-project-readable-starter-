@@ -26,3 +26,14 @@ export const addPost = body =>
 
 export const deletePost = id =>
   fetch(`${api}/posts/${id}`, { method: 'DELETE', headers }).then(res => res.json()).then(data => data);
+
+export const updatePost = (id, body) => {
+  return fetch(`${api}/posts/${id}`, {
+    method: 'PUT',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  }).then(res => res.json());
+};
