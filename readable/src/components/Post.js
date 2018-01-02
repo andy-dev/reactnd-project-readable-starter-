@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 // import PropTypes from 'prop-types';
 
 import FaAngleDown from 'react-icons/lib/fa/angle-down';
@@ -6,7 +8,7 @@ import FaAngleUp from 'react-icons/lib/fa/angle-up';
 
 class Post extends Component {
   render() {
-    const { body, title, author, id, onRemove, voteScore } = this.props;
+    const { body, title, author, id, onRemove, voteScore, post } = this.props;
     return (
       <div className="row p-2 align-items-center">
         <div className="col-md-2 ta-c">
@@ -38,8 +40,11 @@ class Post extends Component {
               <p className="card-text">
                 {body}
               </p>
-              <button className="btn btn-info m-1"> Edit</button>
-              <buton className="btn btn-success m-1">View</buton>
+
+              <Link className="btn btn-success m-1" to={`/editPost/${id}`}>
+                Edit
+              </Link>
+              <button className="btn btn-success m-1">View</button>
               <button onClick={() => onRemove(id)} className="btn btn-danger m-1">
                 Delete
               </button>

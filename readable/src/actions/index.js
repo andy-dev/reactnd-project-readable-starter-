@@ -24,12 +24,13 @@ export const addPost = post => {
   };
 };
 
+
 export const deletePost = id => {
   return dispatch => {
     API.deletePost(id).then(() => {
       dispatch({
         type: DELETE_POST,
-        id: id
+        id
       });
     });
   };

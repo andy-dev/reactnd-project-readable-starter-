@@ -6,7 +6,7 @@ class Posts extends Component {
     const { posts } = this.props;
     return (
       <div>
-        {posts.map(post => <PostContainer key={post.id} {...post} />)}
+        {posts.map(post => <PostContainer key={post.id} post={post} {...post} />)}
       </div>
     );
   }

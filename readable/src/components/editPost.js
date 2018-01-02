@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import TiHome from 'react-icons/lib/ti/home';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import serializeForm from 'form-serialize';
 import { addPost } from '../actions/index';
 var cuid = require('cuid');
 
 class EditPost extends Component {
+  state: {
+    post: ''
+  };
+
+  componentWillMount() {
+    console.log('here');
+    const { match: { params }, posts } = this.props;
+    console.log(params.id);
+    console.log(this.props);
+
+    this.setState(() => ({ post: posts.filter(post => post.id === params.id) }));
+  }
+
   handleSubmit = event => {
     event.preventDefault();
     const { add } = this.props;
@@ -15,9 +31,20 @@ class EditPost extends Component {
   };
 
   render() {
+    const { post } = this.state;
+
+    console.log(post);
+
     return (
       <div className="p-15">
         <h1 className="ta-c">Edit Post</h1>
+        <div className="row mb-5">
+          <div className="col cp">
+            <Link to={`/`}>
+              See All Posts <TiHome />
+            </Link>
+          </div>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label htmlFor="title" placeholder="title">
@@ -54,12 +81,14 @@ class EditPost extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    add: data => dispatch(addPost(data))
-  };
-}
+const mapStateToProps = ({ posts }) => {
+  return { posts: posts };
+};
 
-export default connect(null, mapDispatchToProps)(EditPost);
+// function mapDispatchToProps(dispatch) {
+//   // return {
+//   //   update: data => dispatch(addPost(data))
+//   // };
+// }
 
-
+export default withRouter(connect(mapStateToProps, null)(EditPost));
