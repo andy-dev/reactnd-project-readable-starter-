@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import serializeForm from 'form-serialize';
 import { addPost } from '../actions/index';
-import { withRouter } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import TiHome from 'react-icons/lib/ti/home';
 
 var cuid = require('cuid');
 
 class AddPost extends Component {
+  state = {
+    redirect: false
+  };
+
   handleSubmit = event => {
     event.preventDefault();
     const { add } = this.props;
@@ -17,9 +21,15 @@ class AddPost extends Component {
     values.timestamp = Date.now();
     add(values);
     event.target.reset();
+    this.setState({ redirect: true });
   };
 
   render() {
+    const { redirect } = this.state;
+
+    if (redirect) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="p-15">
         <h1 className="ta-c">Add Post</h1>

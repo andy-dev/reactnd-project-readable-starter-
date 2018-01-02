@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
 import Posts from '../components/Posts';
-import { deletePost } from '../actions/index';
+import { changeVote, deletePost } from '../actions/index';
 
-const mapStateToProps = ({ posts }) => {
-  return { posts: posts };
+const mapStateToProps = ({posts}) => {
+
+  return { posts };
 };
 
 const mapDispatchToProps = dispatch => ({
-  // onCheckOff(item) {
-  //   dispatch(toggleItem(item));
-  // },
+  onChangeVote(id, data) {
+    dispatch(changeVote(id, data));
+  },
+
   onRemove(id) {
     dispatch(deletePost(id));
   }

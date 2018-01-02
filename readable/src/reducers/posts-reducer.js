@@ -1,21 +1,26 @@
-import { ADD_NEW_POST, DELETE_POST, GET_ALL_POSTS, UPDATE_POST } from '../constants';
+import { ADD_NEW_POST, CHANGE_VOTE, DELETE_POST, GET_ALL_POSTS, UPDATE_POST } from '../constants';
 
 export default function(state = {}, action) {
   const { posts, post, id } = action;
 
   switch (action.type) {
     case ADD_NEW_POST:
-      return { ...state, post };
+      return [...state, post];
 
     case GET_ALL_POSTS:
       return posts;
 
     case UPDATE_POST:
-      debugger;
-      return {
-        ...state,
-        [id]: post
-      };
+      return state.map(item => {
+        if (item.id === id) return { ...post };
+        return item;
+      });
+
+    case CHANGE_VOTE:
+      return state.map(item => {
+        if (item.id === id) return { ...post };
+        return item;
+      });
 
     case DELETE_POST:
       return state.filter(post => post.id !== id);

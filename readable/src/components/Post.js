@@ -8,12 +8,12 @@ import FaAngleUp from 'react-icons/lib/fa/angle-up';
 
 class Post extends Component {
   render() {
-    const { body, title, author, id, onRemove, voteScore, post } = this.props;
+    const { body, title, author, id, onRemove, voteScore, onChangeVote } = this.props;
     return (
       <div className="row p-2 align-items-center">
         <div className="col-md-2 ta-c">
           <div className="row">
-            <div className="col cp">
+            <div className="col cp" onClick={() => onChangeVote(id, { option: 'upVote' })}>
               <FaAngleUp size="50" />
             </div>
           </div>
@@ -23,7 +23,7 @@ class Post extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col cp">
+            <div className="col cp" onClick={() => onChangeVote(id, { option: 'downVote' })}>
               <FaAngleDown size="50" />
             </div>
           </div>

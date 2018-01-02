@@ -23,6 +23,7 @@ class EditPost extends Component {
     const { post } = this.state;
     const values = serializeForm(event.target, { hash: true });
     updatePost(post[0].id, values);
+    this.props.history.push('/');
   };
 
   render() {

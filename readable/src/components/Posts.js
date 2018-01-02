@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+
 import PostContainer from '../containers/PostContainer';
 
 class Posts extends Component {
@@ -6,10 +8,12 @@ class Posts extends Component {
     const { posts } = this.props;
     return (
       <div>
-        {posts.map(post => <PostContainer key={post.id} post={post} {...post} />)}
+        {posts.length !== undefined
+          ? posts.map(post => <PostContainer key={post.id} post={post} {...post} />)
+          : <div>Loading</div>}
       </div>
     );
   }
 }
 
-export default Posts;
+export default withRouter(Posts);
