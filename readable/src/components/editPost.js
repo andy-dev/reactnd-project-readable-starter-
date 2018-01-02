@@ -13,11 +13,7 @@ class EditPost extends Component {
   };
 
   componentWillMount() {
-    console.log('here');
     const { match: { params }, posts } = this.props;
-    console.log(params.id);
-    console.log(this.props);
-
     this.setState(() => ({ post: posts.filter(post => post.id === params.id) }));
   }
 
@@ -38,6 +34,9 @@ class EditPost extends Component {
     return (
       <div className="p-15">
         <h1 className="ta-c">Edit Post</h1>
+        <p>
+          {post[0].title}
+        </p>
         <div className="row mb-5">
           <div className="col cp">
             <Link to={`/`}>
@@ -50,19 +49,25 @@ class EditPost extends Component {
             <label htmlFor="title" placeholder="title">
               Title
             </label>
-            <input className="form-control" type="text" name="title" placeholder="Title" />
+            <input className="form-control" type="text" name="title" placeholder="Title" defaultValue={post[0].title} />
           </div>
 
           <div className="form-group">
             <label htmlFor="author" placeholder="Author">
               Author
             </label>
-            <input className="form-control" type="text" name="author" placeholder="Author" />
+            <input
+              className="form-control"
+              type="text"
+              name="author"
+              placeholder="Author"
+              defaultValue={post[0].author}
+            />
           </div>
 
           <div className="form-group">
             <label htmlFor="category">Category</label>
-            <select className="form-control" name="category">
+            <select className="form-control" name="category" defaultValue={post[0].category}>
               <option value="react">React</option>
               <option value="redux">Redux</option>
               <option value="udacity">Udacity</option>
@@ -70,7 +75,7 @@ class EditPost extends Component {
           </div>
           <div className="form-group">
             <label htmlFor="body">Post</label>
-            <textarea className="form-control" name="body" rows="10" />
+            <textarea className="form-control" name="body" rows="10" defaultValue={post[0].body} />
           </div>
           <button type="submit" className="btn btn-primary">
             Add Post

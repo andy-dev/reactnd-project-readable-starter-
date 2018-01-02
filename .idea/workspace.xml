@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdef769f-72e8-4ca9-88bd-bc073e6890a1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/readable/src/containers/EditPostContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readable/src/App.js" afterPath="$PROJECT_DIR$/readable/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readable/src/actions/index.js" afterPath="$PROJECT_DIR$/readable/src/actions/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readable/src/components/Post.js" afterPath="$PROJECT_DIR$/readable/src/components/Post.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readable/src/components/Posts.js" afterPath="$PROJECT_DIR$/readable/src/components/Posts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readable/src/components/editPost.js" afterPath="$PROJECT_DIR$/readable/src/components/editPost.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -106,8 +100,8 @@
       <file leaf-file-name="editPost.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/readable/src/components/editPost.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="35" column="21" lean-forward="false" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+            <state relative-caret-position="269">
+              <caret line="67" column="38" lean-forward="true" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -357,12 +351,12 @@
       <updated>1513471115758</updated>
       <workItem from="1513471117182" duration="1667000" />
       <workItem from="1513531741658" duration="487000" />
-      <workItem from="1513532316250" duration="84149000" />
+      <workItem from="1513532316250" duration="84758000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86303000" />
+    <option name="totallyTimeSpent" value="86912000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="872" extended-state="6" />
@@ -760,8 +754,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/readable/src/components/editPost.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="35" column="21" lean-forward="false" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+        <state relative-caret-position="269">
+          <caret line="67" column="38" lean-forward="true" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
