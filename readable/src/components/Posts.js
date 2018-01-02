@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import PostContainer from '../containers/PostContainer';
+import sortBy from 'sort-by';
 
 class Posts extends Component {
   render() {
-    const { posts } = this.props;
+    const { posts, sortedBy } = this.props;
+    posts.sort(sortBy(sortedBy));
+
     return (
       <div>
         {posts.length !== undefined

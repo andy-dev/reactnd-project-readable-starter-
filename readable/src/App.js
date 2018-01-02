@@ -9,6 +9,10 @@ import AddPost from './components/AddPost';
 import Navigation from './components/Navigation';
 
 class App extends Component {
+  state: {
+    sorter: 'true'
+  };
+
   render() {
     return (
       <div className="container-fluid">
@@ -18,7 +22,7 @@ class App extends Component {
           path="/"
           render={() =>
             <div>
-              <Landing />
+              <Landing sortedBy="alfa" />
             </div>}
         />
         <Route path="/category/:categoryName" render={({ history }) => <Category />} />

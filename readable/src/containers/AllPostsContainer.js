@@ -8,6 +8,7 @@ const mapStateToProps = ({posts}) => {
 };
 
 const mapDispatchToProps = dispatch => ({
+
   onChangeVote(id, data) {
     dispatch(changeVote(id, data));
   },

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import TiHome from 'react-icons/lib/ti/home';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -9,7 +9,8 @@ var cuid = require('cuid');
 
 class EditPost extends Component {
   state: {
-    post: ''
+    post: null,
+    redirect: false
   };
 
   componentWillMount() {
@@ -23,12 +24,17 @@ class EditPost extends Component {
     const { post } = this.state;
     const values = serializeForm(event.target, { hash: true });
     updatePost(post[0].id, values);
-    this.props.history.push('/');
+
+    event.target.reset();
+    this.setState({ redirect: true });
   };
 
   render() {
-    const { post } = this.state;
+    const { redirect, post } = this.state;
 
+    if (redirect) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="p-15">
         <h1 className="ta-c">Edit Post</h1>

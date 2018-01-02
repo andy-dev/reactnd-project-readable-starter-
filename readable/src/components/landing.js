@@ -5,12 +5,42 @@ import AllPostsContainer from '../containers/AllPostsContainer';
 import FaPlus from 'react-icons/lib/fa/plus';
 
 class Landing extends Component {
+  state = {
+    sortedBy: '-voteScore'
+  };
+
+  changeSort(sortBy) {
+    this.setState({ sortedBy: sortBy });
+  }
+
   render() {
     return (
       <div>
         <h1 className="ta-c">Posts</h1>
 
-        <div className="row ta-r">
+        <div className="row">
+          <div className="col cp mr-3">
+            Sort By:
+            <button
+              className="btn-sm btn-primary m-1"
+              onClick={() => {
+                this.changeSort('timestamp');
+              }}
+            >
+              Date
+            </button>
+            <button
+              className="btn-sm btn-primary m-1"
+              onClick={() => {
+                this.changeSort('-voteScore');
+              }}
+            >
+              Votes
+            </button>
+          </div>
+          <div className="col" />
+          <div className="col" />
+          <div className="col" />
           <div className="col cp mr-3">
             <Link to={`/addPost/`}>
               Add Post <FaPlus />
@@ -20,7 +50,7 @@ class Landing extends Component {
 
         <div className="row">
           <div className="col">
-            <AllPostsContainer />
+            <AllPostsContainer sortedBy={this.state.sortedBy} />
           </div>
         </div>
       </div>
@@ -29,8 +59,3 @@ class Landing extends Component {
 }
 
 export default withRouter(Landing);
-
-//
-// <button className="icon-btn">
-//   <MdAdd size={30} />
-// </button>
