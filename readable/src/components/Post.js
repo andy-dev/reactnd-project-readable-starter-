@@ -11,7 +11,7 @@ class Post extends Component {
     const { body, title, author, id, onRemove, voteScore, onChangeVote } = this.props;
     return (
       <div className="row p-2 align-items-center">
-        <div className="col-md-2 ta-c">
+        <div className="col-md-3 ta-c">
           <div className="row">
             <div className="col cp" onClick={() => onChangeVote(id, { option: 'upVote' })}>
               <FaAngleUp size="50" />
@@ -28,7 +28,7 @@ class Post extends Component {
             </div>
           </div>
         </div>
-        <div className="col-md-10 ">
+        <div className="col-md-9">
           <div className="card ">
             <div className="card-body p-3">
               <h5 className="card-title">
@@ -41,11 +41,11 @@ class Post extends Component {
                 {body}
               </p>
 
-              <Link className="btn btn-success m-1" to={`/editPost/${id}`}>
+              <Link className="btn btn-outline-warning m-1" to={`/editPost/${id}`}>
                 Edit
               </Link>
-              <button className="btn btn-success m-1">View</button>
-              <button onClick={() => onRemove(id)} className="btn btn-danger m-1">
+              <button className="btn btn-outline-info m-1">View</button>
+              <button onClick={() => onRemove(id)} className="btn btn-outline-danger m-1">
                 Delete
               </button>
             </div>
