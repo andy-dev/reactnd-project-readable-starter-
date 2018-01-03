@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import serializeForm from 'form-serialize';
-import { addPost } from '../actions/index';
+import { addPost } from '../actions/posts-actions';
 import { Redirect, withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import TiHome from 'react-icons/lib/ti/home';
+
 
 var cuid = require('cuid');
 
@@ -33,13 +32,7 @@ class AddPost extends Component {
     return (
       <div className="p-15">
         <h1 className="ta-c">Add Post</h1>
-        <div className="row mb-5">
-          <div className="col cp">
-            <Link to={`/`}>
-              See All Posts <TiHome />
-            </Link>
-          </div>
-        </div>
+
         <form id="addPostForm" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label htmlFor="title" placeholder="title">

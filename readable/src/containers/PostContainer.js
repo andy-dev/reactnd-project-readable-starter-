@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Post from '../components/Post';
-import { changeVote, deletePost } from '../actions/index';
+import { changeVote, deletePost } from '../actions/posts-actions';
 
 const mapDispatchToProps = dispatch => ({
   onChangeVote(id, data) {

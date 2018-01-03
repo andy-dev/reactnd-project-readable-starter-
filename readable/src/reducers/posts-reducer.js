@@ -4,11 +4,11 @@ export default function(state = {}, action) {
   const { posts, post, id } = action;
 
   switch (action.type) {
-    case ADD_NEW_POST:
-      return [...state, post];
-
     case GET_ALL_POSTS:
       return posts;
+
+    case ADD_NEW_POST:
+      return [...state, post];
 
     case UPDATE_POST:
       return state.map(item => {

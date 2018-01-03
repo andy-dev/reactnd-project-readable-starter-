@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Posts from '../components/Posts';
-import { changeVote, deletePost } from '../actions/index';
+import { changeVote, deletePost } from '../actions/posts-actions';
 
 const mapStateToProps = ({posts}) => {
 

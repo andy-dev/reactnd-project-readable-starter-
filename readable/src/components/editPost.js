@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import TiHome from 'react-icons/lib/ti/home';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import serializeForm from 'form-serialize';
-import { updatePost } from '../actions/index';
+import { updatePost } from '../actions/posts-actions';
 var cuid = require('cuid');
 
 class EditPost extends Component {
@@ -39,13 +38,6 @@ class EditPost extends Component {
       <div className="p-15">
         <h1 className="ta-c">Edit Post</h1>
 
-        <div className="row mb-5">
-          <div className="col cp">
-            <Link to={`/`}>
-              See All Posts <TiHome />
-            </Link>
-          </div>
-        </div>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label htmlFor="title" placeholder="title">

@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import reducers from '../reducers';
 import initialState from './initial-state';
 
-import { getAllPosts } from '../actions/index';
+import { getAllPosts } from '../actions/posts-actions';
 
 const middleware = [thunk];
 const enhancers = [];
