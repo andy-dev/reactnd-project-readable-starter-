@@ -8,7 +8,7 @@ import FaAngleUp from 'react-icons/lib/fa/angle-up';
 
 class Post extends Component {
   render() {
-    const { body, title, author, id, onRemove, voteScore, onChangeVote } = this.props;
+    const { body, title, author, id, onRemove, voteScore, onChangeVote, getCommentsForPost } = this.props;
     return (
       <div className="row p-2 align-items-center">
         <div className="col-md-3 ta-c">
@@ -44,7 +44,12 @@ class Post extends Component {
               <Link className="btn btn-outline-warning m-1" to={`/editPost/${id}`}>
                 Edit
               </Link>
-              <button className="btn btn-outline-info m-1">View</button>
+              <Link className="btn btn-outline-info m-1" to={`/detail/${id}`}>
+                View Link
+              </Link>
+              <button onClick={() => getCommentsForPost(id)} className="btn btn-outline-danger m-1">
+                Get Comments
+              </button>
               <button onClick={() => onRemove(id)} className="btn btn-outline-danger m-1">
                 Delete
               </button>

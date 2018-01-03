@@ -39,12 +39,15 @@ export const updatePost = (id, body) => {
 };
 
 export const changeVote = (id, body) => {
-    return fetch(`${api}/posts/${id}`, {
-        method: 'POST',
-        headers: {
-            ...headers,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-    }).then(res => res.json());
+  return fetch(`${api}/posts/${id}`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  }).then(res => res.json());
 };
+
+export const getAllComments = id =>
+  fetch(`${api}/posts/${id}/comments`, { headers }).then(res => res.json()).then(data => data);

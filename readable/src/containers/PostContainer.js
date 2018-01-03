@@ -1,8 +1,14 @@
 import { connect } from 'react-redux';
 import Post from '../components/Post';
 import { changeVote, deletePost } from '../actions/posts-actions';
+import { getComments } from '../actions/comments-actions';
+import { withRouter, Redirect } from 'react-router-dom';
 
-const mapDispatchToProps = dispatch => ({
+
+const mapDispatchToProps = (dispatch, currentProps) => ({
+  getCommentsForPost(id) {
+    dispatch(getComments(id));
+  },
   onChangeVote(id, data) {
     dispatch(changeVote(id, data));
   },
@@ -11,4 +17,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(null, mapDispatchToProps)(Post);
+export default withRouter(connect(null, mapDispatchToProps)(Post));
