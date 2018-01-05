@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import Post from '../components/Post';
 import { changeVote, deletePost } from '../actions/posts-actions';
-import { getComments } from '../actions/comments-actions';
+import { changeCommentVote, getComments } from '../actions/comments-actions';
 import { withRouter, Redirect } from 'react-router-dom';
-
 
 const mapDispatchToProps = (dispatch, currentProps) => ({
   getCommentsForPost(id) {
