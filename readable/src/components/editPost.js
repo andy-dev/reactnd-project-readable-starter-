@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import serializeForm from 'form-serialize';
 import { updatePost } from '../actions/posts-actions';
-var cuid = require('cuid');
+const cuid = require('cuid');
 
 class EditPost extends Component {
   state: {
