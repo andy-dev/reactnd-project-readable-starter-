@@ -30,7 +30,7 @@ export default function(state = {}, action) {
     // });
 
     case DELETE_COMMENT:
-    // return state.filter(post => post.id !== id);
+      return state.filter(comment => comment.id !== id);
 
     default:
       return state;

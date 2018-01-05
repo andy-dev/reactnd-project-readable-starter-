@@ -42,3 +42,14 @@ export const changeCommentVote = (id, vote) => {
     });
   };
 };
+
+export const deleteComment = id => {
+    return dispatch => {
+        API.deleteComment(id).then(() => {
+            dispatch({
+                type: DELETE_COMMENT,
+                id
+            });
+        });
+    };
+};

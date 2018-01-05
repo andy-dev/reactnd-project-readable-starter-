@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import FaAngleDown from 'react-icons/lib/fa/angle-down';
 import FaAngleUp from 'react-icons/lib/fa/angle-up';
+import { Link } from 'react-router-dom';
 
 class Comment extends Component {
   render() {
-    const { body, author, voteScore, onChangeCommentVote, id } = this.props;
+    const { body, author, voteScore, onChangeCommentVote, id, onRemoveComment } = this.props;
     return (
       <div className="row p-2 align-items-center">
         <div className="col-md-2 offset-md-3 ta-c">
@@ -33,6 +34,11 @@ class Comment extends Component {
               <p className="card-text">
                 {body}
               </p>
+              <button className="btn-sm btn-outline-warning m-1">Edit Comment</button>
+
+              <button onClick={() => onRemoveComment(id)} className="btn-sm btn-outline-danger m-1">
+                Delete Comment
+              </button>
             </div>
           </div>
         </div>
