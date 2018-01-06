@@ -63,16 +63,5 @@ class Post extends Component {
   }
 }
 
-// Post.propTypes = {
-//   packed: PropTypes.bool,
-//   id: PropTypes.string.isRequired,
-//   value: PropTypes.string.isRequired,
-//   onCheckOff: PropTypes.func.isRequired,
-//   onRemove: PropTypes.func.isRequired,
-// };
-//
-// Post.defaultProps = {
-//   packed: false,
-// };
 
 export default Post;

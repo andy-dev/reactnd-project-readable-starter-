@@ -80,7 +80,7 @@ class EditPost extends Component {
 }
 
 const mapStateToProps = ({ posts }) => {
-  return { posts: posts };
+  return { posts };
 };
 
 function mapDispatchToProps(dispatch) {

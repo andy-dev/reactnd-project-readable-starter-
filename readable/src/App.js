@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
-import Landing from './components/landing';
-import Category from './components/category';
-import EditPost from './components/editPost';
+import Landing from './components/Landing';
+import Category from './components/Category';
+import EditPost from './components/EditPost';
 import 'bootstrap/dist/css/bootstrap.css';
 import AddPost from './components/AddPost';
 import Navigation from './components/Navigation';

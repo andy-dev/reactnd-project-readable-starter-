@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import serializeForm from 'form-serialize';
 import { addPost } from '../actions/posts-actions';
 import { Redirect, withRouter } from 'react-router-dom';
-
-
 var cuid = require('cuid');
 
 class AddPost extends Component {
