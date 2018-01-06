@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FaAngleDown from 'react-icons/lib/fa/angle-down';
 import FaAngleUp from 'react-icons/lib/fa/angle-up';
+import serializeForm from 'form-serialize';
 
 class Comment extends Component {
   state = {
@@ -8,8 +9,20 @@ class Comment extends Component {
   };
 
   toggleEditMode(mode) {
-    this.setState(() => ({ editMode: mode }));
+    this.setState({ editMode: mode });
   }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    const { updateComment, id } = this.props;
+    const values = serializeForm(event.target, { hash: true });
+    values.timestamp = Date.now();
+    updateComment(id, values);
+
+    event.target.reset();
+    this.toggleEditMode(false);
+  };
+
   render() {
     const { body, author, voteScore, onChangeCommentVote, id, onRemoveComment } = this.props;
     return (
@@ -54,7 +67,7 @@ class Comment extends Component {
           : <div className="col-md-6 ">
               <div className="card ">
                 <div className="card-body p-3">
-                  <form>
+                  <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                       <label htmlFor="author" placeholder="Author">
                         Author

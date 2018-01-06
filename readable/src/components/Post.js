@@ -8,7 +8,8 @@ import FaAngleUp from 'react-icons/lib/fa/angle-up';
 
 class Post extends Component {
   render() {
-    const { body, title, author, id, onRemove, voteScore, onChangeVote } = this.props;
+    const { body, title, author, id, onRemove, voteScore, onChangeVote, timestamp } = this.props;
+    const date = new Date(timestamp);
     return (
       <div className="row p-2 align-items-center">
         <div className="col-md-3 ta-c">
@@ -35,8 +36,11 @@ class Post extends Component {
                 {title}
               </h5>
               <h6 className="card-subtitle mb-2 text-muted">
-                {author}
+                Author:{author}
               </h6>
+              <p className="card-subtitle mb-2 text-muted">
+                {date.toDateString()}
+              </p>
               <p className="card-text">
                 {body}
               </p>

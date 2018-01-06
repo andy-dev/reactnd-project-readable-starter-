@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Comment from './Comment';
 import serializeForm from 'form-serialize';
 import PostContainer from '../containers/PostContainer';
 import CommentContainer from '../containers/CommentContainer';
@@ -31,10 +30,8 @@ class Detail extends Component {
 
         {posts.length !== undefined
           ? posts.map(post => {
-              {
-                if (post.id === params.id) {
-                  return <PostContainer key={post.id} post={post} {...post} />;
-                }
+              if (post.id === params.id) {
+                return <PostContainer key={post.id} post={post} {...post} />;
               }
             })
           : <div>Loading</div>}
