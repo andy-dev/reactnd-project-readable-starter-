@@ -22,7 +22,7 @@ class App extends Component {
             </div>}
         />
         <Route path="/category/:categoryName" render={({ history }) => <Category />} />
-        <Route path="/detail/:id" render={({ history }) => <DetailContainer />} />
+        <Route path="/:category/:id" render={({ history }) => <DetailContainer />} />
         <Route path="/addPost/" render={({ history }) => <AddPost />} />
         <Route path="/editPost/:id" render={({ history }) => <EditPost />} />
       </div>
