@@ -24,10 +24,10 @@ export default function(state = {}, action) {
       });
 
     case UPDATE_COMMENT:
-    // return state.map(item => {
-    //     if (item.id === id) return { ...post };
-    //     return item;
-    // });
+      return state.map(item => {
+        if (item.id === id) return { ...comment };
+        return item;
+      });
 
     case DELETE_COMMENT:
       return state.filter(comment => comment.id !== id);

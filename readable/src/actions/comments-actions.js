@@ -2,7 +2,6 @@ import * as API from '../util/API';
 
 import {
   GET_COMMENTS_FOR_POST,
-  GET_COMMENT,
   UPDATE_COMMENT,
   DELETE_COMMENT,
   ADD_NEW_COMMENT,
@@ -44,12 +43,24 @@ export const changeCommentVote = (id, vote) => {
 };
 
 export const deleteComment = id => {
-    return dispatch => {
-        API.deleteComment(id).then(() => {
-            dispatch({
-                type: DELETE_COMMENT,
-                id
-            });
-        });
-    };
+  return dispatch => {
+    API.deleteComment(id).then(() => {
+      dispatch({
+        type: DELETE_COMMENT,
+        id
+      });
+    });
+  };
+};
+
+export const updateComment = (id, comment) => {
+  return dispatch => {
+    API.updateComment(id, comment).then(comment => {
+      dispatch({
+        type: UPDATE_COMMENT,
+        id,
+        comment
+      });
+    });
+  };
 };
