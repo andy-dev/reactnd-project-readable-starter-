@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Detail from '../components/detail';
+import Detail from '../components/Detail';
 import { addComment, getComments } from '../actions/comments-actions';
 import { withRouter } from 'react-router-dom';
 

@@ -22,7 +22,7 @@ class Detail extends Component {
   };
 
   render() {
-    const { posts, comments, match: { params } } = this.props;
+    const { posts, comments, match: { params }, history } = this.props;
 
     return (
       <div>
@@ -32,6 +32,10 @@ class Detail extends Component {
           ? posts.map(post => {
               if (post.id === params.id) {
                 return <PostContainer key={post.id} post={post} {...post} />;
+              } else {
+                {
+                  history.push('/404');
+                }
               }
             })
           : <div>Loading</div>}

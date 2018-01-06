@@ -49,6 +49,13 @@ export const changeVote = (id, vote) => {
 };
 
 export const deletePost = id => {
+  API.getAllComments(id).then(comments => {
+    comments.map(comment => {
+      console.log('deleting comment', comment.id);
+      API.deleteComment(comment.id);
+    });
+  });
+
   return dispatch => {
     API.deletePost(id).then(() => {
       dispatch({

@@ -23,6 +23,7 @@ export default function(state = {}, action) {
       });
 
     case DELETE_POST:
+
       return state.filter(post => post.id !== id);
 
     default:

@@ -43,7 +43,7 @@ class AddPost extends Component {
             <label htmlFor="author" placeholder="Author">
               Author
             </label>
-            <input className="form-control" type="text" name="author" placeholder="Author" />
+            <input className="form-control" type="text" name="author" placeholder="Author" required />
           </div>
 
           <div className="form-group">
@@ -56,7 +56,7 @@ class AddPost extends Component {
           </div>
           <div className="form-group">
             <label htmlFor="body">Post</label>
-            <textarea className="form-control" name="body" rows="10" />
+            <textarea className="form-control" name="body" rows="10" required />
           </div>
           <button type="submit" className="btn btn-primary">
             Add Post

@@ -18,7 +18,8 @@ class Post extends Component {
       onChangeVote,
       timestamp,
       commentCount,
-      category
+      category,
+      history
     } = this.props;
     const date = new Date(timestamp);
     return (
@@ -66,7 +67,7 @@ class Post extends Component {
                 View Post
               </Link>
 
-              <button onClick={() => onRemove(id)} className="btn btn-outline-danger m-1">
+              <button onClick={() => onRemove(id, history)} className="btn btn-outline-danger m-1">
                 Delete
               </button>
             </div>
