@@ -8,6 +8,15 @@ class Detail extends Component {
   componentDidMount() {
     const { match: { params }, getCommentsForPost } = this.props;
     getCommentsForPost(params.id);
+    this.checkIfPostExistIfNotRedirect(params.id);
+  }
+
+  checkIfPostExistIfNotRedirect(id) {
+    let postFound = this.props.posts.filter(post => post.id === id);
+    console.log(postFound);
+    if (postFound.length === 0) {
+      this.props.history.push('/404');
+    }
   }
 
   handleSubmit = event => {
@@ -32,10 +41,6 @@ class Detail extends Component {
           ? posts.map(post => {
               if (post.id === params.id) {
                 return <PostContainer key={post.id} post={post} {...post} />;
-              } else {
-                {
-                  history.push('/404');
-                }
               }
             })
           : <div>Loading</div>}
