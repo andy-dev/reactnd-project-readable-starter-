@@ -24,9 +24,9 @@ class App extends Component {
               </div>}
           />
           <Route exact path="/category/:categoryName" render={({ history }) => <Category />} />
+          <Route exact path="/editPost/:id" render={({ history }) => <EditPost />} />
           <Route exact path="/:category/:id" render={({ history }) => <DetailContainer />} />
           <Route exact path="/addPost/" render={({ history }) => <AddPost />} />
-          <Route exact path="/editPost/:id" render={({ history }) => <EditPost />} />
           <Route component={PageNotFound} />
         </Switch>
       </div>
