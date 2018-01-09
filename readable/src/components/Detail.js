@@ -5,16 +5,11 @@ import CommentContainer from '../containers/CommentContainer';
 var cuid = require('cuid');
 
 class Detail extends Component {
-  componentDidMount() {
-    const { match: { params }, getCommentsForPost } = this.props;
-    getCommentsForPost(params.id);
-    this.checkIfPostExistIfNotRedirect(params.id);
-  }
-
-  checkIfPostExistIfNotRedirect(id) {
-    let postFound = this.props.posts.filter(post => post.id === id);
-    console.log(postFound);
+  componentDidUpdate() {
+    const { match: { params } } = this.props;
+    let postFound = this.props.posts.filter(post => post.id === params.id);
     if (postFound.length === 0) {
+      console.log('length is 0');
       this.props.history.push('/404');
     }
   }
