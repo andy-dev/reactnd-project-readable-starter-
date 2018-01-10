@@ -5,6 +5,11 @@ import CommentContainer from '../containers/CommentContainer';
 var cuid = require('cuid');
 
 class Detail extends Component {
+  componentDidMount() {
+    const { match: { params }, getCommentsForPost } = this.props;
+    getCommentsForPost(params.id);
+  }
+    
   componentDidUpdate() {
     const { match: { params } } = this.props;
     let postFound = this.props.posts.filter(post => post.id === params.id);
