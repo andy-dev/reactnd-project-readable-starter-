@@ -9,7 +9,7 @@ class Detail extends Component {
     const { match: { params }, getCommentsForPost } = this.props;
     getCommentsForPost(params.id);
   }
-    
+
   componentDidUpdate() {
     const { match: { params } } = this.props;
     let postFound = this.props.posts.filter(post => post.id === params.id);
